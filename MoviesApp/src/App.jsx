@@ -6,7 +6,6 @@ import "./App.css";
 
 const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
 
-
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
@@ -20,7 +19,13 @@ const App = () => {
     const data = await response.json();
 
     setMovies(data.Search);
-    
+  };
+  const keyDownHandler = (e) => {
+    console.log("User", e.key);
+    if (e.key === "Enter") {
+      // 👇️ your logic here
+      console.log("Enter key pressed ✅");
+    }
   };
 
   return (
@@ -31,6 +36,7 @@ const App = () => {
         <input
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={keyDownHandler}
           placeholder="Search for movies"
         />
         <img
