@@ -8,28 +8,29 @@ import { ShopCategory } from './Pages/ShopCategory';
 import { Product } from './Pages/Product';
 import { Cart } from './Pages/Cart';
 import { LoginSignup } from './Pages/LoginSignup';
+import { Hero } from './Component/Hero/Hero';
 function App() {
 
   return (
-    <>
+    <div>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" elementle={<Shop />} />
-          <Route path="/mens" elementle={<ShopCategory category="mens" />} />
+          <Route path="/" element={<Shop />} />
+          <Route path="/mens" element={<ShopCategory category="mens" />} />
           <Route
             path="/womens"
-            elementle={<ShopCategory category="womens" />}
+            element={<ShopCategory category="womens" />}
           />
-          <Route path="/kids" elementle={<ShopCategory category="kids" />} />
+          <Route path="/kids" element={<ShopCategory category="kids" />} />
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
           </Route>
-          <Route path="/cart" elementle={<Cart/>} />
-          <Route path="/login" elementle={<LoginSignup/>} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginSignup />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
